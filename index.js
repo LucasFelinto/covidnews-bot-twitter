@@ -1,5 +1,7 @@
 const Twiiter = require('twitter');
 const axios = require('axios');
+const express = require('express');
+const app = express();
 const CronJob = require('cron').CronJob;
 require('dotenv/config');
 
@@ -24,8 +26,14 @@ const news = async () => {
   console.log(title, date);
 };
 
-const job = new CronJob('*/10 * * * *', function() {
+const job = new CronJob('*/1 * * * *', function() {
   news();
 });
 
 job.start();
+
+app.get('/', (req, res) => {
+  res.send('<h1>Twiiter bot</h1>');
+});
+
+app.listen(process.env.PORT);
