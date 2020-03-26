@@ -24,8 +24,6 @@ const news = async () => {
   console.log(title, date);
 };
 
-const job = new CronJob('0 * * * * *', function() {
+setInterval(() => {
   news();
-});
-
-job.start();
+}, 60000);
