@@ -24,7 +24,7 @@ const news = async () => {
   console.log(title, date);
 };
 
-const job = new CronJob('*/1 * * * *', function() {
+const job = new CronJob('*/10 * * * *', function() {
   news();
 });
 
