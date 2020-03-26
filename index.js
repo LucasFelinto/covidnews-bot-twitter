@@ -15,7 +15,7 @@ const news = async () => {
     `https://newsapi.org/v2/top-headlines?country=br&q=corona&apiKey=${process.env.NEWSAPI_KEY}`
   );
 
-  const { title, url } = response.data.articles[0];
+  const { title, url } = response.data.articles[4];
   await client.post('statuses/update', {
     status: `${title} ${url}`
   });
