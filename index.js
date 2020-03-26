@@ -24,8 +24,8 @@ const news = async () => {
   console.log(title, date);
 };
 
-const job = new CronJob('*/5 * * * *', function() {
-  news().catch((error) => console.log(error));
+const job = new CronJob('0 * * * * *', function() {
+  news();
 });
 
 job.start();
